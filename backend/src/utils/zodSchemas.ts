@@ -13,3 +13,10 @@ export const createProductSchema = z.object({
 });
 
 export const productSlugSchema = z.string().min(1, "Slug is required");
+
+export const getProductsInputSchema = z.object({
+    brands: z.array(z.string()).optional(),
+    conditions: z.array(z.string()).optional(),
+    minPrice: z.number().optional(),
+    maxPrice: z.number().optional(),
+});

@@ -1,13 +1,32 @@
 import { publicProcedure, router } from '../trpc';
-import { createProductSchema, productSlugSchema } from '../../utils/zodSchemas';
+import { createProductSchema, getProductsInputSchema, productSlugSchema } from '../../utils/zodSchemas';
 import { generateULID, generateSlug } from '../../utils/generators';
+import { Prisma } from '@prisma/client';
 
 export const productRouter = router({
-    getProducts: publicProcedure.query(async ({ ctx }) => {
-        return ctx.prisma.product.findMany({
-            orderBy: { createdAt: 'desc' },
-        });
-    }),
+    getProducts: publicProcedure
+        .input(getProductsInputSchema.optional())
+        .query(async ({ input, ctx }) => {
+            const where: Prisma.ProductWhereInput = {};
+
+            if (input?.brands && input.brands.length > 0) {
+                where.brand = { in: input.brands, mode: 'insensitive' };
+            }
+            if (input?.conditions && input.conditions.length > 0) {
+                where.condition = { in: input.conditions, mode: 'insensitive' };
+            }
+            if (input?.minPrice !== undefined) {
+                where.price = { ...where.price as Prisma.DecimalFilter, gte: new Prisma.Decimal(input.minPrice) };
+            }
+            if (input?.maxPrice !== undefined) {
+                where.price = { ...where.price as Prisma.DecimalFilter, lte: new Prisma.Decimal(input.maxPrice) };
+            }
+
+            return ctx.prisma.product.findMany({
+                where,
+                orderBy: { createdAt: 'desc' },
+            });
+        }),
 
     getProductBySlug: publicProcedure
         .input(productSlugSchema)
@@ -32,5 +51,19 @@ export const productRouter = router({
                 },
             });
             return newProduct;
+        }), getFilterOptions: publicProcedure.query(async ({ ctx }) => {
+            const distinctBrands = await ctx.prisma.product.findMany({
+                select: { brand: true },
+                distinct: ['brand'],
+            });
+            const distinctConditions = await ctx.prisma.product.findMany({
+                select: { condition: true },
+                distinct: ['condition'],
+            });
+
+            return {
+                brands: distinctBrands.map(p => p.brand!).sort(),
+                conditions: distinctConditions.map(p => p.condition!).sort(),
+            };
         }),
 });

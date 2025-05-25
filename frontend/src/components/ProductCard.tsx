@@ -54,7 +54,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <Button
             asChild
             variant="outline"
-            className="w-full border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
+            className="w-full border-blue-600 text-blue-600 transition-colors custom-hover"
           >
             <Link to={`/products/${product.slug}`}>View Details</Link>
           </Button>
