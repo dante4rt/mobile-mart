@@ -31,11 +31,7 @@ export default function Navbar() {
             >
               <Globe className="h-4 w-4 mr-1" /> English-USD
             </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-gray-700 dark:text-white hover:text-blue-600"
-            >
+            <Button variant="ghost" size="sm" className="text-gray-700 hover:text-blue-600">
               <UserCircle className="h-5 w-5 mr-1 sm:mr-2" />
               <span className="hidden sm:inline">Sign In</span>
             </Button>

@@ -132,11 +132,7 @@ export default function ProductDetails() {
                 >
                   <ShoppingCart className="mr-2 h-5 w-5" /> Add to Inquiry
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="flex-1 text-gray-800 dark:text-white"
-                >
+                <Button size="lg" variant="outline" className="flex-1 text-gray-800">
                   <Tag className="mr-2 h-5 w-5" /> Request Quote
                 </Button>
               </div>

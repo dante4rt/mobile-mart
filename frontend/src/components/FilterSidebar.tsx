@@ -78,7 +78,7 @@ export default function FilterSidebar({
           variant="ghost"
           size="sm"
           onClick={handleClearAll}
-          className="text-xs dark:text-white whitespace-nowrap flex-shrink-0 h-7 px-2"
+          className="text-xs whitespace-nowrap flex-shrink-0 h-7 px-2"
         >
           <FilterX className="mr-1 h-3 w-3 flex-shrink-0" /> Clear
         </Button>
@@ -88,7 +88,7 @@ export default function FilterSidebar({
 
       <Accordion type="multiple" defaultValue={defaultAccordionValues} className="w-full space-y-1">
         <AccordionItem value="item-brand" className="border-0">
-          <AccordionTrigger className="text-sm font-medium dark:text-white py-2 hover:no-underline">
+          <AccordionTrigger className="text-sm font-medium  py-2 hover:no-underline">
             Brand
           </AccordionTrigger>
           <AccordionContent className="pt-1 pb-2 space-y-1.5 max-h-48 overflow-y-auto pr-1">
@@ -113,7 +113,7 @@ export default function FilterSidebar({
         <Separator className="my-1" />
 
         <AccordionItem value="item-condition" className="border-0">
-          <AccordionTrigger className="text-sm font-medium dark:text-white py-2 hover:no-underline">
+          <AccordionTrigger className="text-sm font-medium  py-2 hover:no-underline">
             Condition
           </AccordionTrigger>
           <AccordionContent className="pt-1 pb-2 space-y-1.5 max-h-48 overflow-y-auto pr-1">
@@ -139,7 +139,7 @@ export default function FilterSidebar({
         <Separator className="my-1" />
 
         <AccordionItem value="item-price" className="border-0">
-          <AccordionTrigger className="text-sm font-medium dark:text-white py-2 hover:no-underline">
+          <AccordionTrigger className="text-sm font-medium  py-2 hover:no-underline">
             Price Range
           </AccordionTrigger>
           <AccordionContent className="pt-1 pb-2 space-y-2">
