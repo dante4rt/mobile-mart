@@ -1,4 +1,3 @@
-// frontend/src/components/Navbar.tsx
 import { Link } from "react-router-dom";
 import { Smartphone, Search, UserCircle, Globe } from "lucide-react";
 import { Button } from "./ui/button";
@@ -25,10 +24,18 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center space-x-3 sm:space-x-4">
-            <Button variant="ghost" size="sm" className="hidden sm:inline-flex items-center dark:text-white">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="hidden sm:inline-flex items-center dark:text-white"
+            >
               <Globe className="h-4 w-4 mr-1" /> English-USD
             </Button>
-            <Button variant="ghost" size="sm" className="text-gray-700 dark:text-white hover:text-blue-600">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-gray-700 dark:text-white hover:text-blue-600"
+            >
               <UserCircle className="h-5 w-5 mr-1 sm:mr-2" />
               <span className="hidden sm:inline">Sign In</span>
             </Button>

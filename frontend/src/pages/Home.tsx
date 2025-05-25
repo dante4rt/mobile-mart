@@ -1,4 +1,3 @@
-// frontend/src/pages/Home.tsx
 import ProductGrid from "../components/ProductGrid";
 import { trpc } from "../api/trpc";
 import Navbar from "../components/Navbar";
