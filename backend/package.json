@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "build": "bun build src/index.ts --outdir dist",
+    "start": "bun run dist/index.js",
+    "db:migrate": "bunx prisma migrate dev",
+    "db:studio": "bunx prisma studio",
+    "db:seed": "bun run src/db/seed.ts"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.8.0",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@hono/trpc-server": "^0.3.4",
+    "@prisma/client": "6.8.2",
+    "@trpc/server": "^11.1.2",
+    "@types/node": "^22.15.21",
+    "hono": "^4.7.10",
+    "nanoid": "^5.1.5",
+    "prisma": "^6.8.2",
+    "ulid": "^3.0.0",
+    "zod": "^3.25.28"
+  }
+}
