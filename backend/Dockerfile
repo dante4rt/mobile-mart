@@ -4,6 +4,7 @@ WORKDIR /usr/src/app
 
 USER root
 RUN apt-get update -y && apt-get install -y openssl
+RUN chown -R bun:bun /usr/src/app
 USER bun
 
 COPY package.json bun.lockb ./
