@@ -4,7 +4,9 @@ WORKDIR /usr/src/app
 
 USER root
 
-RUN apt-get update -y && apt-get install -y --no-install-recommends openssl=3.* && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends openssl=3.0.2-0ubuntu1.10 && \
+    rm -rf /var/lib/apt/lists/*
 RUN chown -R bun:bun /usr/src/app
 
 USER bun
