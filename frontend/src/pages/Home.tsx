@@ -91,14 +91,6 @@ export default function Home() {
       <Navbar />
       <main className="container mx-auto px-4 py-6 sm:py-8">
         <div className="mb-6 sm:mb-8 flex justify-between items-center">
-          <h1 className="text-2xl sm:text-3xl font-semibold dark:text-gray-100">
-            Used Mobile Phones
-            {searchQuery && (
-              <span className="ml-2 text-base font-normal text-gray-600 dark:text-gray-400">
-                Search results for "{searchQuery}"
-              </span>
-            )}
-          </h1>
           <div className="md:hidden">
             <Sheet open={isMobileFiltersOpen} onOpenChange={setIsMobileFiltersOpen}>
               <SheetTrigger asChild>
@@ -142,7 +134,7 @@ export default function Home() {
 
           <div className="md:col-span-9 lg:col-span-9 xl:col-span-10">
             {searchQuery && (
-              <div className="mb-4 flex items-center">
+              <div className="mb-4 flex items-center justify-center">
                 <span className="text-sm text-gray-600 dark:text-gray-400">
                   Showing results for "{searchQuery}"
                 </span>

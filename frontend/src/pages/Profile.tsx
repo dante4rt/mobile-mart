@@ -100,7 +100,11 @@ export default function Profile() {
                     )}
                   </div>
 
-                  <Button type="submit" className="mt-4 shadow dark:border" disabled={isSubmitting}>
+                  <Button
+                    type="submit"
+                    className="mt-4 shadow bg-blue-500 text-white"
+                    disabled={isSubmitting}
+                  >
                     {isSubmitting ? "Saving..." : "Save Changes"}
                   </Button>
                 </form>

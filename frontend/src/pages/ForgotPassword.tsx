@@ -92,7 +92,11 @@ export default function ForgotPassword() {
                   <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>
                 )}
               </div>
-              <Button type="submit" className="w-full shadow" disabled={isSubmitting}>
+              <Button
+                type="submit"
+                className="w-full shadow bg-blue-500 text-white"
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? "Sending..." : "Send Reset Link"}
               </Button>
             </form>

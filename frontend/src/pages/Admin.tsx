@@ -47,7 +47,7 @@ export default function Admin() {
             <TabsContent value="products" className="space-y-6">
               <div className="flex justify-between items-center">
                 <h2 className="text-xl font-semibold">Products Management</h2>
-                <Button className="bg-white shadow dark:border dark:bg-gray-900">Add New Product</Button>
+                <Button className="bg-blue-500 text-white shadow">Add New Product</Button>
               </div>
 
               <Card className="bg-background dark:bg-gray-900">
@@ -88,7 +88,11 @@ export default function Admin() {
                                   <Button variant="outline" size="sm">
                                     Edit
                                   </Button>
-                                  <Button variant="destructive" className="shadow bg-red-500" size="sm">
+                                  <Button
+                                    variant="destructive"
+                                    className="shadow bg-red-500"
+                                    size="sm"
+                                  >
                                     Delete
                                   </Button>
                                 </div>

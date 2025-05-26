@@ -166,8 +166,7 @@ export default function FilterSidebar({
             <Button
               onClick={handlePriceApply}
               size="sm"
-              variant="outline"
-              className="w-full text-gray-800 dark:text-white h-7 text-xs mt-4"
+              className="w-full h-7 text-xs mt-4 bg-blue-500 text-white"
             >
               Apply Price
             </Button>

@@ -147,7 +147,11 @@ export default function Register() {
                 )}
               </div>
 
-              <Button type="submit" className="w-full shadow" disabled={isSubmitting}>
+              <Button
+                type="submit"
+                className="w-full shadow bg-blue-500 text-white"
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? "Creating account..." : "Create Account"}
               </Button>
             </form>

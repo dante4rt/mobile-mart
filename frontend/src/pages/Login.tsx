@@ -109,7 +109,7 @@ export default function Login() {
                 )}
               </div>
 
-              <Button type="submit" className="w-full shadow" disabled={isSubmitting}>
+              <Button type="submit" className="w-full shadow bg-blue-500 text-white" disabled={isSubmitting}>
                 {isSubmitting ? "Signing in..." : "Sign In"}
               </Button>
             </form>
