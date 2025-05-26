@@ -7,6 +7,7 @@ USER root
 RUN apt-get update -y && \
 	apt-get install -y --no-install-recommends openssl=3.* libstdc++6=12.* && \
 	apt-get clean && \
+    apt-get install -y lib32stdc++6 \
 	rm -rf /var/lib/apt/lists/*
 RUN chown -R bun:bun /usr/src/app
 
