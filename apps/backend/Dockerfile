@@ -9,11 +9,10 @@ RUN chown -R bun:bun /usr/src/app
 
 USER bun
 
-COPY bun.lockb package.json ./
+COPY ../../bun.lockb ../../package.json ./
+COPY . .
 
 RUN bun install --frozen-lockfile
-
-COPY apps/backend/ ./
 
 RUN bunx prisma generate
 RUN bun run build
