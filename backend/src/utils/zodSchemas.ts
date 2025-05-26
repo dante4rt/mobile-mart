@@ -19,4 +19,6 @@ export const getProductsInputSchema = z.object({
     conditions: z.array(z.string()).optional(),
     minPrice: z.number().optional(),
     maxPrice: z.number().optional(),
+    page: z.number().int().min(1).optional().default(1),
+    limit: z.number().int().min(1).max(50).optional().default(12),
 });
