@@ -7,7 +7,7 @@ RUN bun install --frozen-lockfile
 
 COPY . .
 
-RUN npx prisma generate
+RUN bunx prisma generate
 
 RUN bun run build
 
