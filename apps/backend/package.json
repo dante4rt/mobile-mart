@@ -7,7 +7,7 @@
     "build:tsc": "tsc -p tsconfig.json",
     "dev": "bun run --watch src/index.ts",
     "build": "bun run prisma:generate && bun run build:tsc",
-    "start": "bun run dist/index.js",
+    "start": "bun run build && bun run dist/index.js",
     "db:migrate": "bunx prisma migrate dev",
     "db:studio": "bunx prisma studio",
     "db:seed": "bun run src/db/seed.ts",
