@@ -1,10 +1,12 @@
 {
-  "name": "backend",
+  "name": "@mobilemart/backend",
   "module": "index.ts",
   "type": "module",
   "scripts": {
+    "prisma:generate": "prisma generate",
+    "build:tsc": "tsc -p tsconfig.json",
     "dev": "bun run --watch src/index.ts",
-    "build": "bun build src/index.ts --outdir dist",
+    "build": "bun run prisma:generate && bun run build:tsc",
     "start": "bun run dist/index.js",
     "db:migrate": "bunx prisma migrate dev",
     "db:studio": "bunx prisma studio",
