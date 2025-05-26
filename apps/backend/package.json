@@ -3,10 +3,9 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "prisma:generate": "prisma generate",
     "dev": "bun run --watch src/index.ts",
-    "build": "bun run prisma:generate && bunx tsc -p tsconfig.json",
-    "start": "bun run build && bun run dist/index.js",
+    "build": "bun build src/index.ts --outdir dist",
+    "start": "bun run dist/index.js",
     "db:migrate": "bunx prisma migrate dev",
     "db:studio": "bunx prisma studio",
     "db:seed": "bun run src/db/seed.ts",
