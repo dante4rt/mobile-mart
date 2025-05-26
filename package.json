@@ -15,7 +15,7 @@
     "postinstall": "bun --cwd ./apps/backend prisma generate"
   },
   "devDependencies": {
-     "prisma": "latest", 
+    "prisma": "latest",
     "typescript": "latest"
   }
 }
