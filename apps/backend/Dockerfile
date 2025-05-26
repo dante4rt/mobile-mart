@@ -1,4 +1,4 @@
-FROM oven/bun:1 AS base
+FROM oven/bun:latest AS base
 
 WORKDIR /usr/src/app
 
@@ -11,15 +11,15 @@ RUN chown -R bun:bun /usr/src/app
 
 USER bun
 
-COPY bun.lockb ./bun.lockb
 COPY apps/backend/package.json ./package.json
+COPY bun.lockb ./bun.lockb
 
 RUN bun install --frozen-lockfile --production
 
 COPY apps/backend/ ./
 
 RUN bunx prisma generate && \
-	bun run build
+    bun run build
 
 EXPOSE 3000
-CMD ["bun", "dist/index.js"]
+CMD bun dist/index.js
