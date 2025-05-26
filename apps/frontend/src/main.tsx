@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import App from "./App";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { trpc } from "./api/trpc.ts";
+import { trpc } from "./api/trpc";
 import { httpBatchLink } from "@trpc/client";
 import "./index.css";
 

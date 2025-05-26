@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@mobilemart/api-types": ["../../packages/api-types/index.ts"]
+    },
+    "noEmit": true
+  },
+  "include": ["src", "vite.config.ts", ".eslintrc.cjs"],
+  "references": []
+}

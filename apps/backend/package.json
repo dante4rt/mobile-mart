@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "@mobilemart/backend",
   "module": "index.ts",
   "type": "module",
   "scripts": {

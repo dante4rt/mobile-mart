@@ -1,0 +1,19 @@
+{
+  "name": "mobile-mart-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:frontend": "cd apps/frontend && bun run dev",
+    "dev:backend": "cd apps/backend && bun run dev",
+    "build:frontend": "cd apps/frontend && bun run build",
+    "build:backend": "cd apps/backend && bun run build",
+    "lint": "echo \"Linting not set up yet\""
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
