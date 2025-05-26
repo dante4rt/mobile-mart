@@ -5,6 +5,7 @@ import { ShoppingCart, Tag, ChevronLeft, AlertTriangle, ImageIcon } from "lucide
 import { Button } from "../components/ui/button";
 import { ProductDetailsSkeleton } from "../components/ProductDetailsSkeleton";
 import { useSearch } from "../context/SearchContext";
+import ImageZoom from "../components/ImageZoom";
 
 export default function ProductDetails() {
   const { slug } = useParams<{ slug: string }>();
@@ -76,7 +77,7 @@ export default function ProductDetails() {
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
             <div className="w-full">
               {product.imageUrl ? (
-                <img
+                <ImageZoom
                   src={product.imageUrl}
                   alt={product.name}
                   className="w-full h-auto max-h-[400px] md:max-h-[500px] object-contain rounded-md border border-gray-200"
