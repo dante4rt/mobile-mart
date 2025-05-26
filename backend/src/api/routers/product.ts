@@ -92,8 +92,8 @@ export const productRouter = router({
             });
 
             return {
-                brands: distinctBrands.map(p => p.brand!).sort(),
-                conditions: distinctConditions.map(p => p.condition!).sort(),
+                brands: distinctBrands.map((p: { brand: string }) => p.brand!).sort(),
+                conditions: distinctConditions.map((p: { condition: string }) => p.condition!).sort(),
             };
         }),
 });

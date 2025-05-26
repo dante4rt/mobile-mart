@@ -7,10 +7,20 @@ import { httpBatchLink } from "@trpc/client";
 import "./index.css";
 
 const queryClient = new QueryClient();
+
+const getAuthToken = () => {
+  if (typeof window === "undefined") return null;
+  return localStorage.getItem("auth_token");
+};
+
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
       url: "http://localhost:3000/trpc",
+      headers() {
+        const token = getAuthToken();
+        return token ? { Authorization: `Bearer ${token}` } : {};
+      },
     }),
   ],
 });

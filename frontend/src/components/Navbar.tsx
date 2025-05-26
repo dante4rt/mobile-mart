@@ -1,12 +1,22 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Smartphone, Search, UserCircle, Globe } from "lucide-react";
+import { Smartphone, Search, UserCircle, Globe, LogOut, ShoppingCart } from "lucide-react";
 import { Button } from "./ui/button";
 import { useSearch } from "../context/SearchContext";
+import { useAuth } from "../context/AuthContext";
 import { useState, useEffect } from "react";
 import type { FormEvent } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 export default function Navbar() {
   const { searchQuery, setSearchQuery } = useSearch();
+  const { user, isAuthenticated, logout } = useAuth();
   const [localSearch, setLocalSearch] = useState(searchQuery);
   const navigate = useNavigate();
 
@@ -17,6 +27,11 @@ export default function Navbar() {
   const handleSearch = (e: FormEvent) => {
     e.preventDefault();
     setSearchQuery(localSearch);
+    navigate("/");
+  };
+
+  const handleLogout = () => {
+    logout();
     navigate("/");
   };
 
@@ -69,17 +84,74 @@ export default function Navbar() {
             <Button variant="ghost" size="sm" className="hidden sm:inline-flex items-center">
               <Globe className="h-4 w-4 mr-1" /> English-USD
             </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-            >
-              <UserCircle className="h-5 w-5 mr-1 sm:mr-2" />
-              <span className="hidden sm:inline">Sign In</span>
-            </Button>
-            <Button className="bg-orange-500 hover:bg-orange-600 text-gray-700 dark:text-gray-900 px-3 py-1.5 sm:px-4 sm:py-2 text-sm">
-              Sign Up
-            </Button>
+
+            {isAuthenticated ? (
+              <>
+                <Button variant="ghost" size="sm" className="text-gray-700 dark:text-gray-300">
+                  <ShoppingCart className="h-5 w-5" />
+                </Button>
+
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                    >
+                      <UserCircle className="h-5 w-5 mr-1 sm:mr-2" />
+                      <span className="hidden sm:inline">{user?.name || user?.email}</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link to="/profile" className="cursor-pointer w-full">
+                        Profile
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/orders" className="cursor-pointer w-full">
+                        Orders
+                      </Link>
+                    </DropdownMenuItem>
+                    {user?.role === "ADMIN" && (
+                      <DropdownMenuItem asChild>
+                        <Link to="/admin" className="cursor-pointer w-full">
+                          Admin Panel
+                        </Link>
+                      </DropdownMenuItem>
+                    )}
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem
+                      onClick={handleLogout}
+                      className="text-red-500 cursor-pointer"
+                    >
+                      <LogOut className="h-4 w-4 mr-2" />
+                      <span>Logout</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </>
+            ) : (
+              <>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  onClick={() => navigate("/login")}
+                >
+                  <UserCircle className="h-5 w-5 mr-1 sm:mr-2" />
+                  <span className="hidden sm:inline">Sign In</span>
+                </Button>
+                <Button
+                  className="bg-orange-500 hover:bg-orange-600 text-gray-700 dark:text-gray-900 px-3 py-1.5 sm:px-4 sm:py-2 text-sm"
+                  onClick={() => navigate("/register")}
+                >
+                  Sign Up
+                </Button>
+              </>
+            )}
           </div>
         </div>
 

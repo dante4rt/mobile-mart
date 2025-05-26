@@ -39,6 +39,6 @@ app.get('/', (c) => c.text('MobileMart Backend API is running!'));
 console.log('Backend server starting on http://localhost:3000');
 
 export default {
-    port: process.env.PORT || 3000,
+    port: 3000,
     fetch: app.fetch,
 };
