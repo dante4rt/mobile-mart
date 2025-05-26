@@ -11,9 +11,11 @@
     "dev:backend": "cd apps/backend && bun run dev",
     "build:frontend": "cd apps/frontend && bun run build",
     "build:backend": "cd apps/backend && bun run build",
-    "lint": "echo \"Linting not set up yet\""
+    "lint": "echo \"Linting not set up yet\"",
+    "postinstall": "bun --cwd ./apps/backend prisma generate"
   },
   "devDependencies": {
-    "typescript": "^5.8.3"
+     "prisma": "latest", 
+    "typescript": "latest"
   }
 }

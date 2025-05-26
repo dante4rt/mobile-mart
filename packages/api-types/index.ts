@@ -1,1 +1,1 @@
-export type { AppRouter } from '../../apps/backend/src/api';
+export type { AppRouter } from '../../apps/backend/dist/api';
