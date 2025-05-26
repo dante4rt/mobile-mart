@@ -115,7 +115,7 @@ export default function Profile() {
               <Card className="border-red-200 bg-background dark:bg-gray-900">
                 <CardHeader>
                   <CardTitle className="text-red-600">Danger Zone</CardTitle>
-                  <CardDescription>Actions here can't be undone</CardDescription>
+                  <CardDescription>Actions here can&apos;t be undone</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Button variant="destructive" className="shadow text-white bg-red-500">

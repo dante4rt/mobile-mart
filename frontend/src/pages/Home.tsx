@@ -136,7 +136,7 @@ export default function Home() {
             {searchQuery && (
               <div className="mb-4 flex items-center justify-center">
                 <span className="text-sm text-gray-600 dark:text-gray-400">
-                  Showing results for "{searchQuery}"
+                  Showing results for &ldquo;{searchQuery}&rdquo;
                 </span>
                 <Button
                   variant="link"
