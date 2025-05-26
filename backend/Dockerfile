@@ -7,6 +7,8 @@ RUN bun install --frozen-lockfile
 
 COPY . .
 
+RUN npx prisma generate
+
 RUN bun run build
 
 EXPOSE 3000
