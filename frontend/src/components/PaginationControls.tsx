@@ -54,7 +54,7 @@ export function PaginationControls({
   const visiblePages = getVisiblePages();
 
   return (
-    <div className="flex items-center justify-center space-x-2 py-8 bg-white dark:bg-gray-900">
+    <div className="flex items-center justify-center space-x-2 py-8 bg-background dark:bg-gray-900">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}

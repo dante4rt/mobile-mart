@@ -1,7 +1,6 @@
-import { PrismaClient, Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import { generateSlug } from '../utils/generators';
-
-const prisma = new PrismaClient();
+import { prisma } from '.';
 
 const productsData: Prisma.ProductCreateInput[] = [
     {

@@ -58,13 +58,12 @@ export default function ProductDetails() {
     typeof product.price === "string" ? parseFloat(product.price) : product.price;
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+    <div className="bg-background dark:bg-gray-900 min-h-screen">
       <Navbar />
       <main className="container mx-auto px-4 py-8">
         <Button
           asChild
-          variant="outline"
-          className="mb-6 text-sm dark:text-gray-200 dark:border-gray-700"
+          className="mb-6 shadow bg-white dark:bg-transparent text-sm dark:text-gray-200 border-gray-900 dark:border-gray-700"
         >
           <Link to="/">
             <ChevronLeft className="mr-2 h-4 w-4" /> Back to Products
