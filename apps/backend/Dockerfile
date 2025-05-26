@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 USER root
 
 RUN apt-get update -y && \
-	apt-get install -y --no-install-recommends openssl=3.* && \
+	apt-get install -y --no-install-recommends openssl=3.* libstdc++6=12.* && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
 RUN chown -R bun:bun /usr/src/app
