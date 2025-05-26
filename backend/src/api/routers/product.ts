@@ -24,6 +24,14 @@ export const productRouter = router({
             if (input?.maxPrice !== undefined) {
                 where.price = { ...where.price as Prisma.DecimalFilter, lte: new Prisma.Decimal(input.maxPrice) };
             }
+            if (input?.search) {
+                where.OR = [
+                    { name: { contains: input.search, mode: 'insensitive' } },
+                    { description: { contains: input.search, mode: 'insensitive' } },
+                    { brand: { contains: input.search, mode: 'insensitive' } },
+                    { sku: { contains: input.search, mode: 'insensitive' } },
+                ];
+            }
 
             const [products, totalCount] = await Promise.all([
                 ctx.prisma.product.findMany({

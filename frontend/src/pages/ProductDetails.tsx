@@ -4,9 +4,11 @@ import Navbar from "../components/Navbar";
 import { ShoppingCart, Tag, ChevronLeft, AlertTriangle, ImageIcon } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { ProductDetailsSkeleton } from "../components/ProductDetailsSkeleton";
+import { useSearch } from "../context/SearchContext";
 
 export default function ProductDetails() {
   const { slug } = useParams<{ slug: string }>();
+  const { setSearchQuery } = useSearch();
   const {
     data: product,
     isLoading,
@@ -65,7 +67,7 @@ export default function ProductDetails() {
           asChild
           className="mb-6 shadow bg-white dark:bg-transparent text-sm dark:text-gray-200 border-gray-900 dark:border-gray-700"
         >
-          <Link to="/">
+          <Link to="/" onClick={() => setSearchQuery("")}>
             <ChevronLeft className="mr-2 h-4 w-4" /> Back to Products
           </Link>
         </Button>

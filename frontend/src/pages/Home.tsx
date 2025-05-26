@@ -9,6 +9,7 @@ import { Button } from "../components/ui/button";
 import FilterSidebar from "../components/FilterSidebar";
 import { PaginationControls } from "../components/PaginationControls";
 import { FilterSidebarSkeleton } from "../components/FilterSidebarSkeleton";
+import { useSearch } from "../context/SearchContext";
 
 const initialFilters: AppliedFilters = {
   brands: [],
@@ -21,6 +22,7 @@ export default function Home() {
   const [appliedFilters, setAppliedFilters] = useState<AppliedFilters>(initialFilters);
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const { searchQuery, setSearchQuery } = useSearch();
   const itemsPerPage = 8;
 
   const { data: filterOptionsData, isLoading: isLoadingOptions } =
@@ -42,10 +44,11 @@ export default function Home() {
       conditions: appliedFilters.conditions.length > 0 ? appliedFilters.conditions : undefined,
       minPrice: appliedFilters.minPrice ? parseFloat(appliedFilters.minPrice) : undefined,
       maxPrice: appliedFilters.maxPrice ? parseFloat(appliedFilters.maxPrice) : undefined,
+      search: searchQuery || undefined,
       page: currentPage,
       limit: itemsPerPage,
     };
-  }, [appliedFilters, currentPage]);
+  }, [appliedFilters, currentPage, searchQuery]);
 
   const {
     data: productsData,
@@ -61,6 +64,7 @@ export default function Home() {
   const handleClearFilters = () => {
     setAppliedFilters(initialFilters);
     setCurrentPage(1);
+    setSearchQuery("");
   };
 
   const handlePageChange = (page: number) => {
@@ -75,6 +79,10 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [appliedFilters]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery]);
+
   const products = productsData?.products || [];
   const pagination = productsData?.pagination;
 
@@ -85,6 +93,11 @@ export default function Home() {
         <div className="mb-6 sm:mb-8 flex justify-between items-center">
           <h1 className="text-2xl sm:text-3xl font-semibold dark:text-gray-100">
             Used Mobile Phones
+            {searchQuery && (
+              <span className="ml-2 text-base font-normal text-gray-600 dark:text-gray-400">
+                Search results for "{searchQuery}"
+              </span>
+            )}
           </h1>
           <div className="md:hidden">
             <Sheet open={isMobileFiltersOpen} onOpenChange={setIsMobileFiltersOpen}>
@@ -128,6 +141,20 @@ export default function Home() {
           </div>
 
           <div className="md:col-span-9 lg:col-span-9 xl:col-span-10">
+            {searchQuery && (
+              <div className="mb-4 flex items-center">
+                <span className="text-sm text-gray-600 dark:text-gray-400">
+                  Showing results for "{searchQuery}"
+                </span>
+                <Button
+                  variant="link"
+                  className="text-sm ml-2 text-blue-600 dark:text-blue-400"
+                  onClick={() => setSearchQuery("")}
+                >
+                  Clear search
+                </Button>
+              </div>
+            )}
             {isLoadingProducts && <ProductGridSkeleton />}
             {productsError && (
               <div className="text-center py-10 px-4">
