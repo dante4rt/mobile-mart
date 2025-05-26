@@ -1,19 +1,13 @@
-FROM debian:bullseye-slim
+FROM oven/bun:1
 
 WORKDIR /usr/src/app
 
-# Install bun
+USER root
 RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends curl && \
-    curl -fsSL https://bun.sh/install | bash && \
-    mv /root/.bun/bin/bun /usr/local/bin/bun && \
-    apt-get install -y --no-install-recommends openssl libstdc++6 && \
+    apt-get install -y --no-install-recommends openssl=3.* && \ 
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    ldconfig
-
-# Create bun user
-RUN useradd -ms /bin/bash bun && chown -R bun:bun /usr/src/app
+    rm -rf /var/lib/apt/lists/*
+RUN chown -R bun:bun /usr/src/app
 USER bun
 
 COPY bun.lockb package.json ./
@@ -24,5 +18,4 @@ RUN bun install --frozen-lockfile && \
     bun run build
 
 EXPOSE 3000
-
 CMD ["bun", "dist/index.js"]
