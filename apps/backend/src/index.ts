@@ -9,7 +9,7 @@ const app = new Hono();
 app.use(
   "/trpc/*",
   cors({
-    origin: ["http://localhost:5173", "https://mobile-mart-six.vercel.app"],
+    origin: ["http://localhost:5173", "https://mobile-mart-six.vercel.app", "https://mobile-mart.ramadhvni.com"],
     allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
