@@ -1,7 +1,22 @@
 {
   "name": "mobile-mart-monorepo",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "A full-stack B2B used mobile phones marketplace built with Bun, React, Hono, tRPC, Prisma, and Tailwind CSS for the AKP Technical Test.",
+  "author": "Dante4rt <rxmxdhxni@gmail.com>",
+  "keywords": [
+    "b2b",
+    "used phones",
+    "marketplace",
+    "react",
+    "bun",
+    "hono",
+    "trpc",
+    "prisma",
+    "tailwindcss",
+    "typescript",
+    "akp-test"
+  ],
   "workspaces": [
     "apps/*",
     "packages/*"

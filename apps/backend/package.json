@@ -1,5 +1,18 @@
 {
-  "name": "@mobilemart/backend",
+  "name": "mobile-mart-backend",
+  "version": "1.0.0",
+  "description": "Backend API for MobileMart, a B2B used mobile phones marketplace. Built with Bun, Hono, tRPC, and Prisma.",
+  "author": "Dante4rt <rxmxdhxni@gmail.com>",
+  "keywords": [
+    "backend",
+    "api",
+    "bun",
+    "hono",
+    "trpc",
+    "prisma",
+    "postgresql",
+    "akp-test"
+  ],
   "module": "index.ts",
   "type": "module",
   "scripts": {

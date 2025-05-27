@@ -1,7 +1,19 @@
 {
-  "name": "@mobilemart/frontend",
+  "name": "mobile-mart-frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Frontend for MobileMart, a B2B used mobile phones marketplace. Built with React, Vite, Tailwind CSS, and shadcn/ui.",
+  "author": "Dante4rt <rxmxdhxni@gmail.com>",
+  "keywords": [
+    "frontend",
+    "react",
+    "vite",
+    "tailwindcss",
+    "shadcn-ui",
+    "trpc",
+    "typescript",
+    "akp-test"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",

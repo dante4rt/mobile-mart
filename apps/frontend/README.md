@@ -1,54 +1,80 @@
-# React + TypeScript + Vite
+# MobileMart Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend for MobileMart, a B2B used mobile phones marketplace built for the AKP Technical Test.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Bun (runtime & package manager)
+- React (with React Router v7)
+- Vite
+- Tailwind CSS & shadcn/ui
+- tRPC (API layer)
+- Zod (schema validation)
+- TypeScript
+- Biome, ESLint, Prettier (lint/format)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Responsive, mobile-first UI
+- Product grid, details, search, filter, and sort
+- Authentication and profile pages
+- Admin dashboard (optional)
+- tRPC for type-safe API calls
+- Shared types with backend
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+## Getting Started
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Install dependencies:**
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+   ```sh
+   bun install
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+2. **Start the dev server:**
+
+   ```sh
+   bun run dev
+   ```
+
+   App runs at [http://localhost:5173](http://localhost:5173)
+
+## Build & Deploy
+
+- **Build:**
+
+  ```sh
+  bun run build
+  ```
+
+- Deploy `dist/` to Vercel, Railway, or any static host.
+- Use root Dockerfile for full-stack Docker/Railway deployment.
+
+## Database Schema & Seeds
+
+- See [`../backend/prisma/schema.prisma`](../backend/prisma/schema.prisma) for the Product model and other tables.
+- Seed script: [`../backend/src/db/seed.ts`](../backend/src/db/seed.ts) (at least 10 realistic phone entries).
+
+## Code Quality
+
+- Modular folder structure
+- Consistent linting/formatting (Biome, ESLint, Prettier)
+- Comments in code for key logic (see `src/components`, `src/pages`)
+
+## Development Notes
+
+- Used Bun for fast dev/build and monorepo support.
+- Used tRPC for type-safe API calls and shared types.
+- Used Tailwind and shadcn/ui for modern, accessible UI.
+- Ensured all main actions/buttons are large and touch-friendly for mobile/tablet.
+- Challenges: Bun native module support, Docker monorepo context, and full mobile responsiveness.
+
+## Assignment Reference
+
+- [AKP Technical Test Brief](https://go.catamyst.com/akp-test)
+- [GitHub Repo](https://github.com/dante4rt/mobile-mart)
+- [Backend README](../backend/README.md)
+- [Root README](../../README.md)
+
+---
+
+> For full-stack setup and deployment, see the main repo README. Key UI logic is commented in the codebase.
