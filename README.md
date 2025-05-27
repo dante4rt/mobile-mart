@@ -12,14 +12,17 @@ A full-stack B2B used mobile phones marketplace, inspired by Alibaba.com, built 
 - PostgreSQL (production DB), SQLite (local dev)
 - Zod (schema validation)
 - Docker & Docker Compose
-- Biome, ESLint, Prettier (lint/format)
+- ESLint, Prettier (lint/format)
 - Railway (deployment)
 - Monorepo (Bun workspaces)
+- React Hook Form, TanStack React Query, Lucide React, Radix UI, clsx, tailwind-merge (frontend utilities)
+- JWT, bcrypt, NanoID, ULID (backend utilities)
 
 ## Features
 
 - List, search, filter, and view details for used mobile phones
 - Responsive, accessible UI (mobile/tablet/desktop)
+- Full dark mode support
 - Authentication (JWT, bcrypt)
 - Admin dashboard (optional)
 - Seeded with 10+ realistic products
@@ -69,7 +72,7 @@ A full-stack B2B used mobile phones marketplace, inspired by Alibaba.com, built 
 ## Code Quality
 
 - Modular folder structure
-- Consistent linting/formatting (Biome, ESLint, Prettier)
+- Consistent linting/formatting (ESLint, Prettier)
 - Comments in code for key logic
 
 ## Development Notes
@@ -77,7 +80,9 @@ A full-stack B2B used mobile phones marketplace, inspired by Alibaba.com, built 
 - Used Bun for fast dev/build and monorepo support.
 - Used tRPC for type-safe API and shared types.
 - Used Prisma for type-safe DB access and easy migrations.
-- Used Tailwind and shadcn/ui for modern, accessible UI.
+- Used Tailwind and shadcn/ui for modern, accessible UI with full dark mode support.
+- Used React Hook Form, React Query, Lucide, Radix UI, clsx, tailwind-merge for robust frontend.
+- Used JWT, bcrypt, NanoID, and ULID for secure, modern backend logic.
 - Challenges: Bun native module support, Docker monorepo context, and full mobile responsiveness.
 
 ## Assignment Reference

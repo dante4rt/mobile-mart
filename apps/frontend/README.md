@@ -1,26 +1,32 @@
 # MobileMart Frontend
 
-Frontend for MobileMart, a B2B used mobile phones marketplace built for the AKP Technical Test.
+Frontend for MobileMart, built with React, Vite, Tailwind CSS, and shadcn/ui.
 
 ## Tech Stack
 
-- Bun (runtime & package manager)
 - React (with React Router v7)
 - Vite
-- Tailwind CSS & shadcn/ui
+- Tailwind CSS & shadcn/ui (with full dark mode support)
 - tRPC (API layer)
 - Zod (schema validation)
 - TypeScript
-- Biome, ESLint, Prettier (lint/format)
+- ESLint, Prettier (lint/format)
+- React Hook Form (forms & validation)
+- TanStack React Query (data fetching/caching)
+- Lucide React (icons)
+- Radix UI (accessible primitives)
+- clsx, tailwind-merge (utility)
+- Bun (runtime & package manager)
 
 ## Features
 
-- Responsive, mobile-first UI
+- Responsive, mobile-first UI with full dark mode
 - Product grid, details, search, filter, and sort
 - Authentication and profile pages
 - Admin dashboard (optional)
 - tRPC for type-safe API calls
 - Shared types with backend
+- Modern UI/UX with accessible components
 
 ## Getting Started
 
@@ -46,7 +52,7 @@ Frontend for MobileMart, a B2B used mobile phones marketplace built for the AKP 
   bun run build
   ```
 
-- Deploy `dist/` to Vercel, Railway, or any static host.
+- Deploy `dist/` to Vercel, Netlify, Railway, or any static host.
 - Use root Dockerfile for full-stack Docker/Railway deployment.
 
 ## Database Schema & Seeds
@@ -57,14 +63,15 @@ Frontend for MobileMart, a B2B used mobile phones marketplace built for the AKP 
 ## Code Quality
 
 - Modular folder structure
-- Consistent linting/formatting (Biome, ESLint, Prettier)
+- Consistent linting/formatting (ESLint, Prettier)
 - Comments in code for key logic (see `src/components`, `src/pages`)
 
 ## Development Notes
 
 - Used Bun for fast dev/build and monorepo support.
 - Used tRPC for type-safe API calls and shared types.
-- Used Tailwind and shadcn/ui for modern, accessible UI.
+- Used Tailwind and shadcn/ui for modern, accessible UI with full dark mode support.
+- Used React Hook Form, React Query, and Radix UI for robust, accessible forms and data.
 - Ensured all main actions/buttons are large and touch-friendly for mobile/tablet.
 - Challenges: Bun native module support, Docker monorepo context, and full mobile responsiveness.
 

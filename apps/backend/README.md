@@ -11,7 +11,9 @@ Backend API for MobileMart, a B2B used mobile phones marketplace built for the A
 - PostgreSQL (production), SQLite (local dev)
 - Zod (schema validation)
 - TypeScript
-- Biome, ESLint, Prettier (lint/format)
+- JWT & bcrypt (authentication)
+- NanoID, ULID (ID generation)
+- ESLint, Prettier (lint/format)
 
 ## Features
 
@@ -19,6 +21,7 @@ Backend API for MobileMart, a B2B used mobile phones marketplace built for the A
 - Secure authentication (JWT, bcrypt)
 - Product, user, and admin models
 - Seed scripts for demo data
+- Modular, commented codebase
 
 ## Getting Started
 
@@ -58,7 +61,7 @@ Backend API for MobileMart, a B2B used mobile phones marketplace built for the A
 ## Code Quality
 
 - Modular folder structure
-- Consistent linting/formatting (Biome, ESLint, Prettier)
+- Consistent linting/formatting (ESLint, Prettier)
 - Comments in code for key logic (see `src/api`, `src/db`, `src/utils`)
 
 ## Development Notes
@@ -66,6 +69,7 @@ Backend API for MobileMart, a B2B used mobile phones marketplace built for the A
 - Used Bun for fast dev/build and monorepo support.
 - Used tRPC for type-safe API and shared types.
 - Used Prisma for type-safe DB access and easy migrations.
+- Used JWT, bcrypt, NanoID, and ULID for secure, modern backend logic.
 - Challenges: Bun native module support, Docker monorepo context, and Prisma with Bun.
 
 ## Assignment Reference
