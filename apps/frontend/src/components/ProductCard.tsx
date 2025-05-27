@@ -4,6 +4,7 @@ import { ImageIcon, Star } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Skeleton } from "./ui/skeleton";
+import React, { useState } from "react";
 
 interface ProductCardProps {
   product: Product;
@@ -37,16 +38,24 @@ export function ProductCardSkeleton() {
 export default function ProductCard({ product }: ProductCardProps) {
   const displayPrice =
     typeof product.price === "string" ? parseFloat(product.price) : product.price;
+  const [imgLoaded, setImgLoaded] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   return (
     <Card className="group flex flex-col overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300 ease-in-out h-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-[420px] sm:min-h-[440px]">
-      <Link to={`/products/${product.slug}`} className="block overflow-hidden">
-        {product.imageUrl ? (
-          <img
-            src={product.imageUrl}
-            alt={product.name}
-            className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out rounded-t-lg sm:rounded-t-xl"
-          />
+      <Link to={`/products/${product.slug}`} className="block overflow-hidden relative">
+        {product.imageUrl && !imgError ? (
+          <>
+            {!imgLoaded && <Skeleton className="absolute inset-0 w-full h-48 sm:h-56 z-10" />}
+            <img
+              src={product.imageUrl}
+              alt={product.name}
+              className={`w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out rounded-t-lg sm:rounded-t-xl ${imgLoaded ? "opacity-100" : "opacity-0"}`}
+              onLoad={() => setImgLoaded(true)}
+              onError={() => setImgError(true)}
+              style={{ transition: "opacity 0.2s" }}
+            />
+          </>
         ) : (
           <div className="w-full h-48 sm:h-56 bg-gray-100 dark:bg-gray-900 flex items-center justify-center text-gray-400 dark:text-gray-500 rounded-t-lg sm:rounded-t-xl">
             <ImageIcon size={48} />
