@@ -4,7 +4,8 @@
     "outDir": "dist",
     "rootDir": "src",
     "noEmit": false,
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
+    "module": "esnext",
     "types": ["bun-types"],
     "declaration": true
   },
