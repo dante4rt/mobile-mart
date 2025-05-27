@@ -4,13 +4,14 @@ WORKDIR /usr/src/app
 
 USER root
 RUN apt-get update -y && apt-get install -y openssl libstdc++6
-RUN chown -R bun:bun /usr/src/app
-
-USER bun
 
 COPY bun.lockb package.json ./
 COPY apps/backend/package.json ./apps/backend/package.json
 COPY apps/backend/ ./apps/backend/
+
+RUN chown -R bun:bun /usr/src/app
+
+USER bun
 
 WORKDIR /usr/src/app/apps/backend
 
