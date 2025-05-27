@@ -82,7 +82,7 @@ export default function Navbar() {
 
           <div className="flex items-center space-x-3 sm:space-x-4">
             <Button variant="ghost" size="sm" className="hidden sm:inline-flex items-center">
-              <Globe className="h-4 w-4 mr-1" /> English-USD
+              <Globe className="h-4 w-4 mr-1" /> English
             </Button>
 
             {isAuthenticated ? (
