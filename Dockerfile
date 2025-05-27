@@ -15,7 +15,7 @@ USER bun
 
 WORKDIR /usr/src/app/apps/backend
 
-RUN bun install --frozen-lockfile
+RUN bun install
 RUN bunx prisma generate
 RUN bunx tsc -p tsconfig.json
 
