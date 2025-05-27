@@ -6,6 +6,7 @@ USER root
 RUN apt-get update -y && apt-get install -y openssl libstdc++6
 
 COPY bun.lockb package.json ./
+COPY tsconfig.base.json ./
 COPY apps/backend/package.json ./apps/backend/package.json
 COPY apps/backend/ ./apps/backend/
 
