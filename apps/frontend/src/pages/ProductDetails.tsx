@@ -63,52 +63,52 @@ export default function ProductDetails() {
   return (
     <div className="bg-background dark:bg-gray-900 min-h-screen">
       <Navbar />
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-2 sm:px-4 py-6 sm:py-8">
         <Button
           asChild
-          className="mb-6 shadow bg-white dark:bg-transparent text-sm dark:text-gray-200 border-gray-900 dark:border-gray-700"
+          className="mb-6 shadow bg-white dark:bg-transparent text-sm dark:text-gray-200 border-gray-900 dark:border-gray-700 px-4 py-2 sm:px-6 sm:py-3 rounded-lg"
         >
           <Link to="/" onClick={() => setSearchQuery("")}>
             <ChevronLeft className="mr-2 h-4 w-4" /> Back to Products
           </Link>
         </Button>
 
-        <div className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-lg shadow-lg">
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="bg-white dark:bg-gray-800 p-3 sm:p-6 md:p-8 rounded-lg shadow-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-start">
             <div className="w-full">
               {product.imageUrl ? (
                 <ImageZoom
                   src={product.imageUrl}
                   alt={product.name}
-                  className="w-full h-auto max-h-[400px] md:max-h-[500px] object-contain rounded-md border border-gray-200"
+                  className="w-full h-auto max-h-[320px] sm:max-h-[400px] md:max-h-[500px] object-contain rounded-md border border-gray-200"
                 />
               ) : (
-                <div className="w-full h-auto max-h-[400px] md:max-h-[500px] bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-400 dark:text-gray-300 rounded-md border border-gray-200 dark:border-gray-600 aspect-square">
+                <div className="w-full h-auto max-h-[320px] sm:max-h-[400px] md:max-h-[500px] bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-400 dark:text-gray-300 rounded-md border border-gray-200 dark:border-gray-600 aspect-square">
                   <ImageIcon size={64} />
                 </div>
               )}
             </div>
 
             <div>
-              <span className="text-xs text-blue-600 dark:text-blue-400 font-semibold uppercase tracking-wider">
+              <span className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 font-semibold uppercase tracking-wider">
                 {product.brand || "Brand Unspecified"}
               </span>
-              <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 my-2">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 my-2">
                 {product.name}
               </h1>
 
               <div className="my-4">
-                <span className="text-3xl font-bold text-red-600 dark:text-red-400">
+                <span className="text-2xl sm:text-3xl font-bold text-red-600 dark:text-red-400">
                   US${displayPrice.toFixed(2)}
                 </span>
                 {product.condition && (
-                  <span className="ml-3 inline-block bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1 rounded-full capitalize">
+                  <span className="ml-3 inline-block bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs sm:text-sm font-medium px-2.5 py-1 rounded-full capitalize">
                     {product.condition.replace("-", " ")}
                   </span>
                 )}
               </div>
 
-              <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+              <div className="space-y-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-6">
                 <p>
                   <strong className="font-medium text-gray-800 dark:text-gray-300">SKU:</strong>{" "}
                   {product.sku}
@@ -134,29 +134,32 @@ export default function ProductDetails() {
               </div>
 
               <div className="prose prose-sm max-w-none text-gray-700 dark:text-gray-300 mb-8">
-                <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                <h2 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
                   Product Description
                 </h2>
                 <p>{product.description || "No description available."}</p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button size="lg" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
-                  <ShoppingCart className="mr-2 h-5 w-5" /> Add to Inquiry
+              <div className="flex flex-col sm:flex-row gap-3 mt-6 flex-wrap">
+                <Button
+                  size="lg"
+                  className="flex-1 min-h-[3.25rem] text-base sm:text-lg !py-3 !rounded-xl"
+                >
+                  <ShoppingCart className="mr-2 h-6 w-6" /> Add to Inquiry
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="flex-1 text-gray-800 dark:text-gray-200 dark:border-gray-600"
+                  className="flex-1 min-h-[3.25rem] text-base sm:text-lg !py-3 !rounded-xl text-gray-800 dark:text-gray-200 dark:border-gray-600"
                 >
-                  <Tag className="mr-2 h-5 w-5" /> Request Quote
+                  <Tag className="mr-2 h-6 w-6" /> Request Quote
                 </Button>
               </div>
             </div>
           </div>
         </div>
       </main>
-      <footer className="text-center py-8 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700 mt-12">
+      <footer className="text-center py-8 text-xs sm:text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700 mt-12">
         © {new Date().getFullYear()} MobileMart. All rights reserved.
       </footer>
     </div>

@@ -39,16 +39,16 @@ export default function ProductCard({ product }: ProductCardProps) {
     typeof product.price === "string" ? parseFloat(product.price) : product.price;
 
   return (
-    <Card className="group flex flex-col overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300 ease-in-out h-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <Card className="group flex flex-col overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300 ease-in-out h-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-[420px] sm:min-h-[440px]">
       <Link to={`/products/${product.slug}`} className="block overflow-hidden">
         {product.imageUrl ? (
           <img
             src={product.imageUrl}
             alt={product.name}
-            className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
+            className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out rounded-t-lg sm:rounded-t-xl"
           />
         ) : (
-          <div className="w-full h-48 sm:h-56 bg-gray-100 dark:bg-gray-900 flex items-center justify-center text-gray-400 dark:text-gray-500">
+          <div className="w-full h-48 sm:h-56 bg-gray-100 dark:bg-gray-900 flex items-center justify-center text-gray-400 dark:text-gray-500 rounded-t-lg sm:rounded-t-xl">
             <ImageIcon size={48} />
           </div>
         )}
@@ -58,32 +58,33 @@ export default function ProductCard({ product }: ProductCardProps) {
         <Link to={`/products/${product.slug}`} className="block mb-2 flex-grow">
           <h3
             title={product.name}
-            className="text-sm font-medium text-gray-800 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2"
+            className="text-base sm:text-lg font-medium text-gray-800 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2"
           >
             {product.name}
           </h3>
         </Link>
 
         <div className="mt-auto">
-          <p className="text-lg font-bold text-red-600 dark:text-red-400 my-1">
+          <p className="text-lg sm:text-xl font-bold text-red-600 dark:text-red-400 my-1">
             US${displayPrice.toFixed(2)}
           </p>
           {product.minimumOrderQuantity && (
-            <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-3">
               Min. order: {product.minimumOrderQuantity} piece
               {product.minimumOrderQuantity > 1 ? "s" : ""}
             </p>
           )}
-          <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
+          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">
             Supplier: {product.brand || "Generic Brand"}
           </p>
-          <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-3">
-            <Star size={14} className="text-yellow-400 fill-yellow-400 mr-1" /> 4.5/5 (20)
+          <div className="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-8">
+            <Star size={16} className="text-yellow-400 fill-yellow-400 mr-1" /> 4.5/5 (20)
           </div>
           <Button
             asChild
             variant="outline"
-            className="w-full border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 transition-colors custom-hover"
+            size="lg"
+            className="w-full border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 transition-colors custom-hover !rounded-xl !py-3 !text-base sm:!text-lg"
           >
             <Link to={`/products/${product.slug}`}>View Details</Link>
           </Button>

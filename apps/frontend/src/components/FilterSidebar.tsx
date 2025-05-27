@@ -70,10 +70,10 @@ export default function FilterSidebar({
 
   return (
     <aside
-      className={`p-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 dark:border dark:border-gray-700 rounded-lg shadow space-y-4 ${className}`}
+      className={`p-2 sm:p-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 dark:border dark:border-gray-700 rounded-lg shadow space-y-4 ${className}`}
     >
       <div className="flex justify-between items-center gap-3">
-        <h2 className="text-lg font-semibold flex items-center">
+        <h2 className="text-base sm:text-lg font-semibold flex items-center">
           <ListFilter className="mr-2 h-4 w-4 flex-shrink-0 text-gray-700 dark:text-gray-300" />{" "}
           Filters
         </h2>
@@ -81,9 +81,9 @@ export default function FilterSidebar({
           variant="ghost"
           size="sm"
           onClick={handleClearAll}
-          className="text-xs whitespace-nowrap flex-shrink-0 h-7 px-2 text-gray-700 dark:text-gray-300"
+          className="text-xs whitespace-nowrap flex-shrink-0 h-10 px-4 !rounded-lg !text-base sm:!text-sm"
         >
-          <FilterX className="mr-1 h-3 w-3 flex-shrink-0" /> Clear
+          <FilterX className="mr-1 h-4 w-4 flex-shrink-0" /> Clear
         </Button>
       </div>
 
@@ -101,10 +101,11 @@ export default function FilterSidebar({
                   id={`brand-${brand}`}
                   checked={appliedFilters.brands.includes(brand)}
                   onCheckedChange={(checked) => handleBrandChange(brand, checked)}
+                  className="h-6 w-11 sm:h-5 sm:w-9"
                 />
                 <Label
                   htmlFor={`brand-${brand}`}
-                  className="font-normal text-xs capitalize cursor-pointer text-gray-900 dark:text-gray-100"
+                  className="font-normal text-xs sm:text-sm capitalize cursor-pointer text-gray-900 dark:text-gray-100"
                 >
                   {brand}
                 </Label>
@@ -126,11 +127,11 @@ export default function FilterSidebar({
                   id={`condition-${condition}`}
                   checked={appliedFilters.conditions.includes(condition)}
                   onCheckedChange={(checked) => handleConditionChange(condition, checked)}
-                  className="h-3.5 w-3.5"
+                  className="h-4 w-4 sm:h-3.5 sm:w-3.5"
                 />
                 <Label
                   htmlFor={`condition-${condition}`}
-                  className="font-normal text-xs capitalize cursor-pointer text-gray-900 dark:text-gray-100"
+                  className="font-normal text-xs sm:text-sm capitalize cursor-pointer text-gray-900 dark:text-gray-100"
                 >
                   {condition.replace("-", " ")}
                 </Label>
@@ -146,27 +147,27 @@ export default function FilterSidebar({
             Price Range
           </AccordionTrigger>
           <AccordionContent className="pt-1 pb-2 space-y-2 bg-white dark:bg-gray-900">
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-2 sm:gap-1.5">
               <Input
                 type="number"
                 placeholder="Min"
                 value={localMinPrice}
                 onChange={(e) => setLocalMinPrice(e.target.value)}
-                className="text-xs h-8 focus-visible:ring-1 focus-visible:ring-offset-0 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                className="text-xs sm:text-sm h-10 sm:h-8 focus-visible:ring-1 focus-visible:ring-offset-0 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
               />
-              <span className="text-muted-foreground text-xs dark:text-gray-400">-</span>
+              <span className="text-muted-foreground text-xs sm:text-sm dark:text-gray-400">-</span>
               <Input
                 type="number"
                 placeholder="Max"
                 value={localMaxPrice}
                 onChange={(e) => setLocalMaxPrice(e.target.value)}
-                className="text-xs h-8 focus-visible:ring-1 focus-visible:ring-offset-0 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+                className="text-xs sm:text-sm h-10 sm:h-8 focus-visible:ring-1 focus-visible:ring-offset-0 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
               />
             </div>
             <Button
               onClick={handlePriceApply}
               size="sm"
-              className="w-full h-7 text-xs mt-4 bg-blue-500 text-white"
+              className="w-full h-10 text-base sm:text-sm mt-4 bg-blue-500 text-white !rounded-lg"
             >
               Apply Price
             </Button>
